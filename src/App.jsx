@@ -1,22 +1,32 @@
-import './App.css'
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom"
+import './App.css'
+import logo from "/images/logo.png"
 import Home from "./pages/Home"
 import About from "./pages/About"
+import Vans from "./pages/Vans"
+
+import "./server"
 
 function App() {
     return (
         <BrowserRouter>
-            <header>
-                <Link to="/">#VANLIFE</Link>
-                <nav>
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                </nav>
-            </header>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-            </Routes>
+            <div className="container">
+                <header>
+                    <Link className="site-logo" to="/">
+                        <img src={logo} />
+                    </Link>
+                    <nav>
+                        <Link to="/">Home</Link>
+                        <Link to="/about">About</Link>
+                        <Link to="/vans">Vans</Link>
+                    </nav>
+                </header>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/vans" element={<Vans />}>Vans</Route>
+                </Routes>
+            </div>
         </BrowserRouter>
     )
 }
