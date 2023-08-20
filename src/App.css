@@ -373,12 +373,16 @@ html, body {
 }
 
 body::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 body {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+main {
+    min-height: 100vh;
 }
 
 .container {
@@ -439,11 +443,11 @@ header a {
     font-weight: 600;
 }
 
-nav a {
+header nav a {
     padding: 5px 20px;
 }
 
-nav a:last-child {
+header nav a:last-child {
     padding-right: 0px;
 }
 
@@ -469,6 +473,19 @@ header a:hover {
     transform: translate(1px, 1px);
 }
 
+/* FOOTER */
+footer {
+    background-color: #161616;
+    color: #AAAAAA;
+    height: 74px;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    font-weight: 500;
+}
+
 
 
 /********************************* 
@@ -476,7 +493,7 @@ HOME
 *********************************/
 
 .home-container {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), url("./assets/images/home-hero.png") no-repeat center center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)), url("/images/home-hero.png") no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -527,9 +544,7 @@ ABOUT
 }
 
 .about-page-content {
-    padding-inline: 23px;
     color: #161616;
-    margin-bottom: 55px;
 }
 
 .about-page-content h1 {
@@ -543,7 +558,6 @@ ABOUT
 .about-page-cta {
     background-color: #FFCC8D;
     color: #161616;
-    padding-inline: 32px;
     padding-bottom: 32px;
     margin-inline: 27px;
     border-radius: 5px;
@@ -698,3 +712,55 @@ i[class*='van-type-'] {
     color: white;
     font-size: 1.125rem;
 }
+
+
+
+/********************************* 
+HOST PAGES 
+*********************************/
+
+.host-nav {
+    display: flex;
+}
+
+.host-nav a {
+    text-decoration: none;
+    color: #4D4D4D;
+    font-weight: 500;
+    padding: 5px 20px 5px 0;
+}
+
+.host-nav a:hover {
+    color: #161616;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

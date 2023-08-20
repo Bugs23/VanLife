@@ -1,34 +1,37 @@
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom"
 import './App.css'
-import logo from "/images/logo.png"
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Vans from "./pages/Vans"
-import VanDetail from "./pages/VanDetail"
+import Vans from "./pages/Vans/Vans"
+import VanDetail from "./pages/Vans/VanDetail"
+import Layout from "./components/Layout"
+import Dashboard from "./pages/Host/Dashboard"
+import Income from "./pages/Host/Income"
+import Reviews from "./pages/Host/Reviews"
+import HostLayout from "./components/HostLayout"
 
 import "./server"
 
 function App() {
     return (
         <BrowserRouter>
-            <div className="container">
-                <header>
-                    <Link className="site-logo" to="/">
-                        <img src={logo} />
-                    </Link>
-                    <nav>
-                        <Link to="/">Home</Link>
-                        <Link to="/about">About</Link>
-                        <Link to="/vans">Vans</Link>
-                    </nav>
-                </header>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/vans" element={<Vans />}>Vans</Route>
-                    <Route path="/vans/:id" element={<VanDetail />}></Route>
-                </Routes>
-            </div>
+            <Routes>
+                {/* PAGE LAYOUT STARTS */}
+                <Route path="/" element={<Layout />} >
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="vans" element={<Vans />} />
+                    <Route path="vans/:id" element={<VanDetail />} />
+                    {/* DASHBOARD LAYOUT STARTS */}
+                    <Route path="host" element={<HostLayout />} >
+                        <Route index element={<Dashboard />} />
+                        <Route path="Income" element={<Income />} />
+                        <Route path="Reviews" element={<Reviews />} />
+                    </Route>
+                    {/* DASHBOARD LAYOUT ENDS */}
+                </Route>
+                {/* PAGE LAYOUT ENDS */}
+            </Routes>
         </BrowserRouter>
     )
 }
