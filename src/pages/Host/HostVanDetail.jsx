@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 import {useParams, Link, NavLink, Outlet, useOutletContext} from "react-router-dom"
+import {BsFillArrowLeftSquareFill} from "react-icons/bs"
 
 export default function HostVanDetail() {
 
@@ -21,7 +22,10 @@ export default function HostVanDetail() {
 
     return (
         <section>
-            <Link to=".." relative="path" className="back-button"><>&larr;</> <span>Back to all vans</span></Link>
+            <Link to=".." relative="path" className="back-button">
+                <BsFillArrowLeftSquareFill className="back-arrow" /> 
+                <span>Back to all vans</span>
+            </Link>
             {
                 currentVan ? (
                     <>
