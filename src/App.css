@@ -877,6 +877,21 @@ HOST PAGES
 
 
 
+/********************************* 
+NOT FOUND PAGE 
+*********************************/
+
+.not-found-container {
+    text-align: center;
+}
+
+.not-found-container .link-button {
+    width: 20%;
+    background-color: #161616;
+    color: white;
+}
+
+
 
 
 

@@ -14,6 +14,7 @@ import HostVanPricing from "./pages/Host/HostVanPricing"
 import HostVanPhotos from "./pages/Host/HostVanPhotos"
 import Reviews from "./pages/Host/Reviews"
 import HostLayout from "./components/HostLayout"
+import NotFound from "./components/NotFound"
 
 import "./server"
 
@@ -42,6 +43,7 @@ function App() {
                         {/* HOST VAN DETAILS LAYOUT ENDS */}
                     </Route>
                     {/* DASHBOARD LAYOUT ENDS */}
+                    <Route path="*" element={<NotFound />} />
                 </Route>
                 {/* PAGE LAYOUT ENDS */}
             </Routes>
