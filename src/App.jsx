@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Vans from "./pages/Vans/Vans"
 import VanDetail from "./pages/Vans/VanDetail"
+import Login from "./pages/Login"
 import Layout from "./components/Layout"
 import Dashboard from "./pages/Host/Dashboard"
 import Income from "./pages/Host/Income"
@@ -14,7 +15,7 @@ import HostVanPricing from "./pages/Host/HostVanPricing"
 import HostVanPhotos from "./pages/Host/HostVanPhotos"
 import Reviews from "./pages/Host/Reviews"
 import HostLayout from "./components/HostLayout"
-import NotFound from "./components/NotFound"
+import NotFound from "./pages/NotFound"
 
 import "./server"
 
@@ -28,6 +29,7 @@ function App() {
                     <Route path="about" element={<About />} />
                     <Route path="vans" element={<Vans />} />
                     <Route path="vans/:id" element={<VanDetail />} />
+                    <Route path="login" element={<Login />} />
                     {/* DASHBOARD LAYOUT STARTS */}
                     <Route path="host" element={<HostLayout />} >
                         <Route index element={<Dashboard />} />
