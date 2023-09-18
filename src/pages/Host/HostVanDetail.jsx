@@ -1,11 +1,13 @@
 import {useState, useEffect} from "react"
 import {useParams, Link, NavLink, Outlet, useOutletContext} from "react-router-dom"
+import {getHostVans} from "../../api"
 import {BsFillArrowLeftSquareFill} from "react-icons/bs"
 
 export default function HostVanDetail() {
 
     const [currentVan, setCurrentVan] = useState()
-
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
     const {id} = useParams()
 
     const activeStyles = {
@@ -15,10 +17,30 @@ export default function HostVanDetail() {
     }
 
     useEffect(() => {
-        fetch(`/api/host/vans/${id}`)
-            .then(res => res.json())
-            .then(data => setCurrentVan(data.vans))
-    }, [])
+        async function loadVans() {
+            setLoading(true)
+            try {
+                const data = await getHostVans(id)
+                setCurrentVan(data)
+            } catch (error) {
+                setError(error)
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadVans()
+    }, [id])
+
+    // If the data's still loading, show the "Loading"
+    if (loading) {
+        return <h1>Loading... </h1>
+    }
+
+    // If error's true, show an error message
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>
+    }
 
     return (
         <section>
