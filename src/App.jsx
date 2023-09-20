@@ -16,6 +16,7 @@ import HostVanPhotos from "./pages/Host/HostVanPhotos"
 import Reviews from "./pages/Host/Reviews"
 import HostLayout from "./components/HostLayout"
 import NotFound from "./pages/NotFound"
+import AuthRequired from "./components/AuthRequired"
 
 import "./server"
 
@@ -30,21 +31,25 @@ function App() {
                     <Route path="vans" element={<Vans />} />
                     <Route path="vans/:id" element={<VanDetail />} />
                     <Route path="login" element={<Login />} />
-                    {/* DASHBOARD LAYOUT STARTS */}
-                    <Route path="host" element={<HostLayout />} >
-                        <Route index element={<Dashboard />} />
-                        <Route path="Income" element={<Income />} />
-                        <Route path="Reviews" element={<Reviews />} />
-                        <Route path="vans" element={<HostVans />} />
-                        {/* HOST VAN DETAILS LAYOUT STARTS */}
-                        <Route path="vans/:id" element={<HostVanDetail />} >
-                            <Route index element={<HostVanInfo />} />
-                            <Route path="pricing" element={<HostVanPricing />} />
-                            <Route path="photos" element={<HostVanPhotos />} />
+                    {/* AUTHENTICATION STARTS */}
+                    <Route element={<AuthRequired />}>
+                        {/* DASHBOARD LAYOUT STARTS */}
+                        <Route path="host" element={<HostLayout />} >
+                            <Route index element={<Dashboard />} />
+                            <Route path="Income" element={<Income />} />
+                            <Route path="Reviews" element={<Reviews />} />
+                            <Route path="vans" element={<HostVans />} />
+                            {/* HOST VAN DETAILS LAYOUT STARTS */}
+                            <Route path="vans/:id" element={<HostVanDetail />} >
+                                <Route index element={<HostVanInfo />} />
+                                <Route path="pricing" element={<HostVanPricing />} />
+                                <Route path="photos" element={<HostVanPhotos />} />
+                            </Route>
+                            {/* HOST VAN DETAILS LAYOUT ENDS */}
                         </Route>
-                        {/* HOST VAN DETAILS LAYOUT ENDS */}
+                        {/* DASHBOARD LAYOUT ENDS */}
                     </Route>
-                    {/* DASHBOARD LAYOUT ENDS */}
+                    {/* AUTHENTICATION ENDS */}
                     <Route path="*" element={<NotFound />} />
                 </Route>
                 {/* PAGE LAYOUT ENDS */}
