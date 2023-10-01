@@ -3,6 +3,11 @@ import logo from "/images/logo.png"
 import {BiUserCircle} from "react-icons/bi"
 
 export default function Header() {
+
+    function fakeLogOut() {
+        localStorage.removeItem("loggedin")
+    }
+
     return (
         <div className="container">
             <header>
@@ -17,6 +22,7 @@ export default function Header() {
                     <Link to="login" className="login-link">
                         <BiUserCircle className="login-icon" />
                     </Link>
+                    <button onClick={fakeLogOut}>X</button>
                 </nav>
             </header>
         </div>
