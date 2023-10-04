@@ -6,11 +6,11 @@ export default function Layout() {
     return (
         <div className="site-wrapper">
             <Header />
+            <div className="container">
             <main>
-                <div className="container">
-                    <Outlet />
-                </div>
+                <Outlet />
             </main>
+            </div>
             <Footer />
         </div>
     )

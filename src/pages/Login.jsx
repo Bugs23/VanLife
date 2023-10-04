@@ -11,6 +11,9 @@ export default function Login() {
 
     const navigate = useNavigate()
 
+    // From AuthRequired - Store the users location from the Navigate component's state for where they were before they logged in
+    const from = location.state?.from || "/"
+
     function handleSubmit(e) {
         e.preventDefault()
         setStatus("submitting")
@@ -18,7 +21,7 @@ export default function Login() {
             .then((data) => {
                 setError(null)
                 localStorage.setItem("loggedin", true)
-                navigate("/host", {replace: true})
+                navigate(from, {replace: true})
             })
             .catch((error) => {
                 setError(error)
